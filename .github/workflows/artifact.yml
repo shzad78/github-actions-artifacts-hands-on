@@ -19,7 +19,6 @@ jobs:
         name: hello-artifact
         path: hello.txt
 
-  # New job added below
   download:
     # a. This job should execute after the - build job
     needs: build
@@ -27,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # c. Add step to download the text file from previous job and place it in path: ./artifacts
+      # c. Add step to download the text file and place it in path: ./artifacts
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
@@ -37,7 +36,7 @@ jobs:
       # d. Add step to display the content of hello.txt file
       - name: Display hello.txt content
         run: cat ./artifacts/hello.txt
-
 		
+
 
 
