@@ -22,8 +22,10 @@ jobs:
   download:
     needs: build
     runs-on: ubuntu-latest
-
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4  # <--- This is the standard missing step
+
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
